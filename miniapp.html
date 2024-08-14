@@ -1,10 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG MiniApp</title>
+    <title>Bunker RPG MiniApp</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,20 +15,36 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #333;
+            color: white;
         }
         h1 {
             margin-bottom: 20px;
+        }
+        .character-card {
+            padding: 20px;
+            margin: 10px;
+            background-color: #444;
+            border-radius: 8px;
+            width: 80%;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #666;
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to RPG MiniApp</h1>
+    <h1>Bunker RPG</h1>
+    <div id="character" class="character-card">
+        <h2>Character</h2>
+        <p id="character-info">Role: Waiting...</p>
+    </div>
     <button id="startGameBtn">Start Game</button>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -41,6 +56,18 @@
         });
 
         tg.expand(); // Расширяет веб-приложение на весь экран
+
+        // Функция для обновления информации о персонаже
+        function updateCharacterInfo(role) {
+            const infoElement = document.getElementById('character-info');
+            infoElement.textContent = `Role: ${role}`;
+        }
+
+        // Получение данных от бота
+        tg.onEvent('mainButtonClicked', function () {
+            const role = "Survivor";  // Получаем роль от бота
+            updateCharacterInfo(role);
+        });
     </script>
 </body>
 </html>
