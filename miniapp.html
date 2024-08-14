@@ -35,18 +35,17 @@
     <script>
         const tg = window.Telegram.WebApp;
 
-        // Добавляем обработчик нажатия на кнопку
         document.getElementById('startGameBtn').addEventListener('click', () => {
-            // Проверка, что Telegram API загружен и активен
+            console.log("Button clicked"); // Проверка нажатия кнопки
             if (tg) {
-                tg.sendData("start_game"); // Отправка данных боту
+                tg.sendData("start_game");
+                console.log("Data sent: start_game"); // Проверка отправки данных
             } else {
-                alert("Telegram Web App is not available.");
+                console.error("Telegram Web App API is not available.");
             }
         });
 
-        // Расширение MiniApp на весь экран
-        tg.expand();
+        tg.expand(); // Расширяет веб-приложение на весь экран
     </script>
 </body>
 </html>
