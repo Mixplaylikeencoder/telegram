@@ -34,15 +34,14 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         alert("JavaScript is running");
-
         const tg = window.Telegram.WebApp;
-
+    
         if (tg) {
             alert("Telegram Web App is available");
         } else {
             alert("Telegram Web App is not available");
         }
-
+    
         document.getElementById('startGameBtn').addEventListener('click', () => {
             alert("Start Game button clicked");
             if (tg) {
@@ -52,7 +51,7 @@
                 alert("Failed to send data: Telegram Web App API is not available.");
             }
         });
-
+    
         tg.expand(); // Расширяет веб-приложение на весь экран
     </script>
 </body>
