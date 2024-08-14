@@ -33,7 +33,15 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        console.log("Telegram Web App API initialized");
+
         const tg = window.Telegram.WebApp;
+
+        if (tg) {
+            console.log("Telegram Web App is available");
+        } else {
+            console.error("Telegram Web App is not available");
+        }
 
         document.getElementById('startGameBtn').addEventListener('click', () => {
             console.log("Button clicked"); // Проверка нажатия кнопки
